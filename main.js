@@ -1,1 +1,1 @@
-var random = b;
+var random = x;
