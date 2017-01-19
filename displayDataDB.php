@@ -18,7 +18,7 @@
    else{
       echo("<table>");
       while ($row = pg_fetch_row($ret)) {
-           print_r("<tr><td>Data".$row."</td></tr>");
+           print_r($row);
       }
       echo("</table>");
    }
