@@ -10,7 +10,7 @@
    /*
       Add Test Data
    */
-   $query = "INSERT INTO TestDataSet VALUES('.$datastream')";
+   $query = "INSERT INTO TestDataSet VALUES('$datastream')";
    $ret = pg_query($query);
    if(!$ret){
       echo(pg_last_error($db));
