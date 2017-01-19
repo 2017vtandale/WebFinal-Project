@@ -4,6 +4,7 @@
 
 <head>
     <script>
+        var datastream = '1,2,3,2,1,2,3,4,5,4';
         window.onload = function() {
             if (window.XMLHttpRequest) {
                 // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -18,7 +19,7 @@
                     response.innerHTML = this.responseText;
                 }
             };
-            xmlhttp.open("GET", "https://webfinal-project.herokuapp.com/setupDB.php", true);
+            xmlhttp.open("POST", "https://webfinal-project.herokuapp.com/addDataDB.php?datastream=" + datastream, true);
             xmlhttp.send();
         }
     </script>

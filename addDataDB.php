@@ -7,20 +7,15 @@
    $db = pg_pconnect($host." ".$dbname." ".$user." ".$port." ".$password);
 
    /*
-      Create Test Table
+      Add Test Data
    */
-   $query= <<<ESCAPED
-        CREATE TABLE TestDataSet(
-           data varchar(255)
-        )
-ESCAPED;
-
+   $query = "INSERT INTO TestDataSet VALUES(.$datastream)";
    $ret = pg_query($query);
    if(!$ret){
       echo(pg_last_error($db));
    }
    else{
-      echo("success");
+      echo("successfully added row");
    }
 
  ?>
