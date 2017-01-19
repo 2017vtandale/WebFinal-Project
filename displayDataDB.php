@@ -1,5 +1,4 @@
 <?php
-   $datastream = $_REQUEST["datastream"];
    $host="host=ec2-54-235-84-244.compute-1.amazonaws.com";
    $dbname="dbname=d1ovq05vs2aqii";
    $user="user=nxamshinupbnkg";
