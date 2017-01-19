@@ -15,7 +15,7 @@
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     var response = document.getElementById("response");
-                    message.innerHTML = this.responseText;
+                    response.innerHTML = this.responseText;
                 }
             };
             xmlhttp.open("GET", "https://webfinal-project.herokuapp.com/setupDB.php", true);
