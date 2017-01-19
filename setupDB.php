@@ -11,7 +11,7 @@
    */
    $query= <<<ESCAPED
         CREATE TABLE TestDataSet(
-           data varchar(max)
+           data varchar(255)
         )
 ESCAPED;
 
