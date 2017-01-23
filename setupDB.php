@@ -11,7 +11,7 @@
    */
    $query= <<<ESCAPED
         CREATE TABLE DataSet(
-           userID BIGINT(255), data VARCHAR(255)
+           userID bigint, data varchar(255)
         )
 ESCAPED;
 
