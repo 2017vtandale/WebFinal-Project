@@ -10,7 +10,7 @@
       Display Test Data
    */
 
-   $query = "SELECT * FROM DataSet";
+   $query = "SELECT (userID, data) FROM DataSet";
    $ret = pg_query($query);
 
    if(!$ret){
