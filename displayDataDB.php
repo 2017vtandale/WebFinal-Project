@@ -18,6 +18,7 @@
    }
    else{
       if (pg_num_rows($ret) > 0) {
+         echo(pg_num_rows($ret));
          // output data of each row
          while($row = pg_fetch_row($ret)) {
             echo "userID: " . $row[0] . "data: " . $row[1] . "<br>";
