@@ -7,11 +7,11 @@
    $db = pg_pconnect($host." ".$dbname." ".$user." ".$port." ".$password);
 
    /*
-      Create Test Table
+      Create Data Table
    */
    $query= <<<ESCAPED
-        CREATE TABLE TestDataSet(
-           data varchar(255)
+        CREATE TABLE DataSet(
+           userID BIGINT(255), data VARCHAR(255)
         )
 ESCAPED;
 
