@@ -17,9 +17,9 @@
       echo(pg_last_error($db));
    }
    else{
-      if ($ret->num_rows > 0) {
+      if (pg_num_rows($ret) > 0) {
          // output data of each row
-         while($row = $result->fetch_assoc()) {
+         while($row = pg_fetch_assoc($ret)) {
             echo "data: " . $row["data"] . "<br>";
          }
       }
