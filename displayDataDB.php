@@ -30,11 +30,13 @@
    */
    $query = "SELECT COUNT(*) FROM TestDataSet";
    $ret = pg_query($query);
+
    if(!$ret){
       echo(pg_last_error($db));
    }
    else{
-      print_r($ret);
+      $data=pg_fetch_assoc($ret);
+      echo $data['total'];
    }
 
  ?>
