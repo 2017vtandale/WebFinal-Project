@@ -28,7 +28,7 @@
    /*
       Count the number of entries in the table
    */
-   $query = "SELECT COUNT(*) FROM TestDataSet";
+   $query = "SELECT COUNT(*) AS total FROM TestDataSet";
    $ret = pg_query($query);
 
    if(!$ret){
