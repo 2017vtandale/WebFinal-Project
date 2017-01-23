@@ -28,4 +28,9 @@ function createGraph() {
 document.addEventListener('DOMContentLoaded', function() {
     //Get Data (callback function)
     //   Display data on graph --> end
+
+    //User ID, pulling Test Data
+    var userID = 1;
+
+
 });
