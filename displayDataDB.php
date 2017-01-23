@@ -8,26 +8,31 @@
 
    /*
       Display Test Data
+   */
 
    $query = "SELECT * FROM TestDataSet";
-
    $ret = pg_query($query);
+
    if(!$ret){
       echo(pg_last_error($db));
    }
    else{
-      echo("<table>");
-      while ($row = pg_fetch_row($ret)) {
-           echo('<tr><td>'.$row[0]);
-           echo('</td></tr>');
+      if ($ret->num_rows > 0) {
+         // output data of each row
+         while($row = $result->fetch_assoc()) {
+            echo "data: " . $row["data"] . "<br>";
+         }
       }
-      echo("</table>");
+      else {
+         echo "0 results";
+      }
    }
-   */
+
 
    /*
       Count the number of entries in the table
    */
+   /*
    $query = "SELECT COUNT(*) AS total FROM TestDataSet";
    $ret = pg_query($query);
 
@@ -38,5 +43,6 @@
       $data=pg_fetch_assoc($ret);
       echo $data['total'];
    }
+   */
 
  ?>
