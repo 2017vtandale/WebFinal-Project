@@ -1,5 +1,6 @@
 <?php
    $datastream = $_REQUEST["datastream"];
+   $userID = $_REQUEST["userID"];
    $host="host=ec2-54-235-84-244.compute-1.amazonaws.com";
    $dbname="dbname=d1ovq05vs2aqii";
    $user="user=nxamshinupbnkg";
@@ -10,7 +11,7 @@
    /*
       Add Test Data
    */
-   $query = "INSERT INTO DataSet VALUES('$datastream')";
+   $query = "INSERT INTO DataSet (userID, data) VALUES('$userID','$datastream')";
    $ret = pg_query($query);
    if(!$ret){
       echo(pg_last_error($db));

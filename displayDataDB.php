@@ -20,7 +20,7 @@
       if (pg_num_rows($ret) > 0) {
          // output data of each row
          while($row = pg_fetch_assoc($ret)) {
-            echo "data: " . $row["data"] . "<br>";
+            echo "userID: " . $row["userID"] . "data: " . $row["data"] . "<br>";
          }
       }
       else {
