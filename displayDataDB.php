@@ -7,8 +7,8 @@
    $db = pg_pconnect($host." ".$dbname." ".$user." ".$port." ".$password);
 
    /*
-      Add Test Data
-   */
+      Display Test Data
+
    $query = "SELECT * FROM TestDataSet";
 
    $ret = pg_query($query);
@@ -18,9 +18,23 @@
    else{
       echo("<table>");
       while ($row = pg_fetch_row($ret)) {
-           echo('<tr><td>'.$row[0].'</td></tr>');
+           echo('<tr><td>'.$row[0]);
+           echo('</td></tr>');
       }
       echo("</table>");
+   }
+   */
+
+   /*
+      Count the number of entries in the table
+   */
+   $query = "SELECT COUNT(*) FROM TestDataSet";
+   $ret = pg_query($query);
+   if(!$ret){
+      echo(pg_last_error($db));
+   }
+   else{
+      print_r($ret);
    }
 
  ?>
