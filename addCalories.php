@@ -84,6 +84,7 @@
    }
 
    //Insert new row back into table
+   $finalArr = to_pg_array($finalArr)
    $query = "INSERT INTO CalorieDataSet(userID, data) VALUES ('$userID','$finalArr')";
    $ret = pg_query($query);
    if(!$ret){
