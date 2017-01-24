@@ -47,6 +47,7 @@ function getData(userID, callback, errorCallback) {
 function createGraph(dataSet) {
     renderStatus(dataSet);
 
+    var today = new Date();
     var todayDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     renderStatus(todayDate);
     var ctx = document.getElementById("myChart").getContext("2d");
