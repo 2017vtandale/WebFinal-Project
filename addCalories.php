@@ -46,9 +46,9 @@
    else{
       //push new input onto currently existing data
       $arr = pg_fetch_all($ret);
-      print_r($arr)
-      print_r($arr[0] . "<br />")
-      print_r($arr[0][data] . "<br />")
+      print_r($arr);
+      print_r($arr[0] . "<br />");
+      print_r($arr[0][data] . "<br />");
       $finalArr = $arr[0][data];
       print_r($finalArr);
       $finalArr.push($input);
