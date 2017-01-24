@@ -29,7 +29,6 @@
    $port="port=5432";
    $password="password=758dac437d2f27d11f6431307baf1bf13569730baa40b8c86cdb77291cb8aea8";
    $db = pg_pconnect($host." ".$dbname." ".$user." ".$port." ".$password);
-   echo("connect");
    //date and cals will be inserted into database with format
    // date:cals      i.e.     0121:1000
    $input = $date . ":" . $cals;
@@ -37,14 +36,18 @@
    // Read current array
    $query = "SELECT * FROM CalorieDataSet WHERE userID='$userID'";
    $ret = pg_query($query);
+   echo("query");
    $finalArr;
+   echo("begin first if");
    if(!$ret){
+      echo("first if");
       echo(pg_last_error($db));
       //if this fails for some reason, assume that the
       //row does not exist
       $finalArr = to_pg_array(array($input));
    }
    else{
+      echo("first else");
       //push new input onto currently existing data
       $finalArr = pg_fetch_all($ret)[0][data];
       $finalArr.push($input);
