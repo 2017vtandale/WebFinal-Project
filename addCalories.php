@@ -25,7 +25,7 @@
    }
 
    $finalArr = array($input);
-   echo($finalArr);
+   print_r($finalArr);
    $query = "INSERT INTO CalorieDataSet(userID, data) VALUES ('$userID','$finalArr')";
    $ret = pg_query($query);
    if(!$ret){
