@@ -11,7 +11,7 @@
    /*
       Add Test Data
    */
-   $query = "INSERT INTO DataSet(userID, data) VALUES('".$userID."', ".$datastream.")";
+   $query = "INSERT INTO DataSet(userID, data) VALUES('".$userID."', '".$datastream."')";
    $ret = pg_query($query);
    if(!$ret){
       echo(pg_last_error($db));
