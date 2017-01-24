@@ -5,7 +5,8 @@ $user="user=nxamshinupbnkg";
 $port="port=5432";
 $password="password=758dac437d2f27d11f6431307baf1bf13569730baa40b8c86cdb77291cb8aea8";
 $db = pg_pconnect($host." ".$dbname." ".$user." ".$port." ".$password);
-$query = "CREATE TABLE Login ( User varchar(255) , Pass varchar(255) )";
+//$query = "CREATE TABLE Login(user varchar(255) , pass varchar(255) )";
+$query = "CREATE TABLE Login(user varchar(255), pass varchar(255)  )";
 $ret = pg_query($query);
 if(!$ret){
 echo(pg_last_error($db));
