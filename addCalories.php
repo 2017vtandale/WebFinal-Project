@@ -42,7 +42,7 @@
    $input = $date . ":" . $cals;
 
    // Read current array
-   $query = "SELECT * FROM CalorieDataSet WHERE userID='$userID'";
+   $query = "SELECT * FROM CalorieDataSet";
    $ret = pg_query($query);
    echo("query");
    $finalArr = [];
