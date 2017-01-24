@@ -2,7 +2,7 @@
   "name": "webfinal",
   "version": "1.0.0",
   "description": "Web Final Project",
-  "main": "main.js",
+  "main": "./login/login.js",
   "dependencies": {
     "pg": "^6.1.2"
   },
