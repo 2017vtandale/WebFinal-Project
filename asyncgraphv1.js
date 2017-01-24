@@ -48,13 +48,16 @@ function createGraph(dataSet) {
     renderStatus(dataSet);
 
     var today = new Date();
-    var todayDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    renderStatus(todayDate);
+    var todayDate = (today.getMonth()+1)+'-'+today.getDate();
+    var dateLabels = [];
+    for(i = 9; i >= 0; i--){
+      dateLabels.push((today.getMonth()+1)+'-'+(today.getDate()-i));
+    }
     var ctx = document.getElementById("myChart").getContext("2d");
     var myChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            labels: dateLabels,
             datasets: [{
                 label: "My First dataset",
                 data: dataSet,
