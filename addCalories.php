@@ -35,7 +35,7 @@
    $input = $date . ":" . $cals;
 
    // Read current array
-   $query = "SELECT * FROM CalorieDataSet(userID, data) WHERE userID='$userID'";
+   $query = "SELECT * FROM CalorieDataSet(userID, data)";
    $ret = pg_query($query);
    if(!$ret){
       echo(pg_last_error($db));
