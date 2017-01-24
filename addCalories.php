@@ -45,7 +45,11 @@
    }
    else{
       //push new input onto currently existing data
-      print_r(pg_fetch_all($ret));
+      $arr = pg_fetch_all($ret);
+      print_r($arr[0] . "<br />")
+      print_r($arr[0][data] . "<br />")
+      $finalArr = $arr[0][data];
+      print_r($finalArr);
       $finalArr.push($input);
       //delete that row from the table
       $query = "DELETE FROM CalorieDataSet WHERE userID='$userID'";
