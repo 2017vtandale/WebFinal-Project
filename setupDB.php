@@ -9,7 +9,7 @@
    /*
       Create Data Table
    */
-   $query = "CREATE TABLE DataSet(userID bigint, data text)";
+   $query = "CREATE TABLE CalorieDataSet(userID integer, data text[][])";
 
    $ret = pg_query($query);
    if(!$ret){
