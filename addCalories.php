@@ -36,7 +36,7 @@
    // Read current array
    $query = "SELECT * FROM CalorieDataSet WHERE userID='$userID'";
    $ret = pg_query($query);
-   $finalArr;
+   $finalArr = [];
    if(!$ret){
       echo(pg_last_error($db));
       //if this fails for some reason, assume that the
@@ -45,9 +45,8 @@
    }
    else{
       //push new input onto currently existing data
-      $finalArr = pg_fetch_all($ret)[0];
+      print_r(pg_fetch_all($ret));
       $finalArr.push($input);
-      echo(print_r($finalArr);
       //delete that row from the table
       $query = "DELETE FROM CalorieDataSet WHERE userID='$userID'";
       $ret = pg_query($query);
