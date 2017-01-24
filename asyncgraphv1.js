@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //User ID, pulling Test Data
     var userID = 1;
 
-    getData(userID, function() {
+    getData(userID, function(dataSet) {
         createGraph(dataSet);
     }, function(errorMessage) {
         renderStatus('Error: ' + errorMessage);
