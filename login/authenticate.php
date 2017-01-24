@@ -17,7 +17,7 @@ echo(pg_last_error($db));
 }
 else{
   while ($row = pg_fetch_row($ret)) {
-    $isuser = $row[0]==$user && $row[1]==%pw
+    $isuser = $row[0]==$user && $row[1]==$pw;
     if($isuser){
       header("Location: ../home.html");
     }
