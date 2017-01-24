@@ -1,4 +1,25 @@
 <?php
+
+   //Function that converts a PHP array to a literal PostGres array
+   function to_pg_array($set) {
+      settype($set, 'array'); // can be called with a scalar or array
+      $result = array();
+      foreach ($set as $t) {
+         if (is_array($t)) {
+            $result[] = to_pg_array($t);
+         }
+         else {
+            $t = str_replace('"', '\\"', $t); // escape double quote
+            if (! is_numeric($t)) // quote only non-numeric values
+                $t = '"' . $t . '"';
+            $result[] = $t;
+        }
+   }
+   return '{' . implode(",", $result) . '}'; // format
+   }
+
+
+
    $date = $_REQUEST["date"];
    $cals = $_REQUEST["cals"];
    $userID = $_REQUEST["userID"];
@@ -14,7 +35,6 @@
    $input = $date . ":" . $cals;
 
    // Read current array
-
    $query = "SELECT * FROM CalorieDataSet(userID, data) WHERE userID='$userID'";
    $ret = pg_query($query);
    if(!$ret){
@@ -26,6 +46,7 @@
 
    $finalArr = array($input);
    print_r($finalArr);
+   print_r(to_pg_array($finalArr));
    $query = "INSERT INTO CalorieDataSet(userID, data) VALUES ('$userID','$finalArr')";
    $ret = pg_query($query);
    if(!$ret){
@@ -34,4 +55,5 @@
    else{
       echo("successfully added row");
    }
+
  ?>
