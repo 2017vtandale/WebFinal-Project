@@ -44,6 +44,7 @@
    // Read current array
    $query = "SELECT * FROM CalorieDataSet WHERE userID='$userID'";
    $ret = pg_query($query);
+   echo("query");
    $finalArr = [];
    if(!$ret){
       echo(pg_last_error($db));
@@ -52,16 +53,17 @@
       $finalArr = to_pg_array(array($input));
    }
    else{
+      echo("first else" . "<br />");
       //push new input onto currently existing data
       $arr = pg_fetch_all($ret);
-      print_r($arr"<br />");
+      print_r($arr . "<br />");
       print_r($arr[0] . "<br />");
-      print_r($arr[0][data] . "<br />")
+      print_r($arr[0][data] . "<br />");
       $finalArr = $arr[0][data];
-      print_r($finalArr"<br />");
-      print_r(postgres_to_php_array($finalArr)"<br />");
+      print_r($finalArr. "<br />");
+      print_r(postgres_to_php_array($finalArr) . "<br />");
       $finalArr = array_merge(postgres_to_php_array($finalArr), array($input));
-      print_r($finalArr"<br />");
+      print_r($finalArr. "<br />");
       //delete that row from the table
       $query = "DELETE FROM CalorieDataSet WHERE userID='$userID'";
       $ret = pg_query($query);
