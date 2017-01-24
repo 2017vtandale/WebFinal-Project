@@ -1,0 +1,23 @@
+{
+  "name": "webfinal",
+  "version": "1.0.0",
+  "description": "Web Final Project",
+  "main": "main.js",
+  "dependencies": {
+    "pg": "^6.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2017vtandale/WebFinal-Project.git"
+  },
+  "author": "Vishal Tandale",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/2017vtandale/WebFinal-Project/issues"
+  },
+  "homepage": "https://github.com/2017vtandale/WebFinal-Project#readme"
+}
