@@ -12,8 +12,6 @@ $query = "SELECT * FROM login";
 $ret = pg_query($query);
 $user = htmlspecialchars($_POST["user"]);
 $pw = htmlspecialchars($_POST["pw"]);
-echo($user);
-echo($pw);
 if(!$ret){
 echo(pg_last_error($db));
 }
@@ -24,7 +22,7 @@ else{
       header("Location: ../home.html");
     }
   }
-  if($isuser){
+  if(!$isuser){
     header("Location: ./login.html");
   }
 }
