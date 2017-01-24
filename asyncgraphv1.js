@@ -45,7 +45,7 @@ function getData(userID, callback, errorCallback) {
  */
 
 function createGraph(dataSet) {
-    var dataSet = [1, 2, 3, 2, 1, 2, 3, 4, 5, 4];
+    renderStatus(dataSet);
     var ctx = document.getElementById("myChart").getContext("2d");
     var myChart = new Chart(ctx, {
         type: 'line',
@@ -53,7 +53,7 @@ function createGraph(dataSet) {
             labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
             datasets: [{
                 label: "My First dataset",
-                data: dataSet;
+                data: dataSet,
             }]
         },
         options: {}
