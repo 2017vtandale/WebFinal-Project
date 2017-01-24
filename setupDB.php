@@ -9,11 +9,7 @@
    /*
       Create Data Table
    */
-   $query= <<<ESCAPED
-        CREATE TABLE DataSet(
-           userID bigint, data text
-        )
-ESCAPED;
+   $query = "CREATE TABLE DataSet(userID bigint, data text)";
 
    $ret = pg_query($query);
    if(!$ret){

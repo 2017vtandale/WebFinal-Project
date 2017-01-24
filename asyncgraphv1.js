@@ -26,7 +26,7 @@ function getData(userID, callback, errorCallback) {
     }
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            var dataSet = this.responseText.split('.');
+            var dataSet = this.responseText.split('-');
             callback(dataSet);
         }
     };
