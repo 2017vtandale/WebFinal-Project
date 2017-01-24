@@ -45,7 +45,7 @@
    }
    else{
       //push new input onto currently existing data
-      $finalArr = pg_fetch_all($ret)[0][data];
+      $finalArr = pg_fetch_all($ret)[0];
       $finalArr.push($input);
       echo(print_r($finalArr);
       //delete that row from the table
