@@ -48,6 +48,7 @@
       //push new input onto currently existing data
       $finalArr = pg_fetch_all($ret)[0][data];
       $finalArr.push($input);
+      print_r($finalArr);
       //delete that row from the table
       $query = "DELETE FROM CalorieDataSet WHERE userID='$userID'";
       $ret = pg_query($query);
@@ -62,7 +63,7 @@
    }
 
    //Insert new row back into table
-   $query = "INSERT INTO CalorieDataSet VALUES ('$userID','$finalArr')";
+   $query = "INSERT INTO CalorieDataSet(userID, data) VALUES ('$userID','$finalArr')";
    $ret = pg_query($query);
    if(!$ret){
       echo(pg_last_error($db));
