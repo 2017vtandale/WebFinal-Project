@@ -7,7 +7,7 @@
    $db = pg_pconnect($host." ".$dbname." ".$user." ".$port." ".$password);
 
 
-   $query = "SELECT * FROM CalorieDataSet(userID, data)";
+   $query = "SELECT * FROM CalorieDataSet";
    $ret = pg_query($query);
    if(!$ret){
       echo(pg_last_error($db));
