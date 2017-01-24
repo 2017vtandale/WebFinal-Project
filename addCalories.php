@@ -35,11 +35,14 @@
    $input = $date . ":" . $cals;
 
    // Read current array
-   $query = "SELECT * FROM CalorieDataSet";
+   $query = "SELECT * FROM CalorieDataSet WHERE userID='$userID'";
    $ret = pg_query($query);
    $finalArr;
    if(!$ret){
       echo(pg_last_error($db));
+      //if this fails for some reason, assume that the
+      //row does not exist
+      $finalArr = to_pg_array(array($input));
    }
    else{
       //push new input onto currently existing data
@@ -58,7 +61,6 @@
 
    }
 
-   //$finalArr = to_pg_array(array($input));
    //Insert new row back into table
    $query = "INSERT INTO CalorieDataSet VALUES ('$userID','$finalArr')";
    $ret = pg_query($query);
