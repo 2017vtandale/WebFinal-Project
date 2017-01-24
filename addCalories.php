@@ -56,14 +56,20 @@
       echo("first else" . "<br />");
       //push new input onto currently existing data
       $arr = pg_fetch_all($ret);
-      print_r($arr . "<br />");
-      print_r($arr[0] . "<br />");
-      print_r($arr[0][data] . "<br />");
+      print_r($arr);
+      echo("<br />");
+      print_r($arr[0]);
+      echo("<br />");
+      print_r($arr[0][data]);
+      echo("<br />");
       $finalArr = $arr[0][data];
-      print_r($finalArr. "<br />");
-      print_r(postgres_to_php_array($finalArr) . "<br />");
+      print_r($finalArr);
+      echo("<br />");
+      print_r(postgres_to_php_array($finalArr));
+      echo("<br />");
       $finalArr = array_merge(postgres_to_php_array($finalArr), array($input));
-      print_r($finalArr. "<br />");
+      print_r($finalArr);
+      echo("<br />");
       //delete that row from the table
       $query = "DELETE FROM CalorieDataSet WHERE userID='$userID'";
       $ret = pg_query($query);
