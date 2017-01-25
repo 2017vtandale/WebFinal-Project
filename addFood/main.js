@@ -6,11 +6,10 @@ loginbut.onclick = function(){
     xhttp.onreadystatechange = function() {
 
       if (this.readyState == 4 && this.status == 200) {
-        console.log(this.response.Text)
+        console.log(this.responseText)
         document.getElementById('foods').innerHTML = this.responseText;
-        //console.log("I got the text");
       }
     }
-    xhttp.open("GET", "https://webfinal-project.herokuapp.com/addFood/getFood.php?food="+food.value, true);
+    xhttp.open("GET", "./getFood.php?food="+food.value, true);
     xhttp.send();
 }
