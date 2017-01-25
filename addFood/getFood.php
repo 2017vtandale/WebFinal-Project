@@ -5,8 +5,7 @@ $url = "http://api.nal.usda.gov/ndb/search/?format=json&q=".$query."&sort=n&max=
 $response = file_get_contents($url);
 $response = json_decode($response);
 //echo('<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>');
+
 //echo("start");
 foreach($response->list as $temp)
 {
