@@ -14,10 +14,7 @@ foreach($response->list as $temp)
   {
     foreach($temp as $row)
     {
-      <x
-      Bryan Cranston
-    </span>
-      echo('li class="mdl-list__item">
+    echo('li class="mdl-list__item">
     <span class="mdl-list__item-primary-content">'
     .$row->name.'</span>');
   }
