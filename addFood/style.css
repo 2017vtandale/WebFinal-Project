@@ -1,3 +1,4 @@
-input{
-  padding-left: 20px;
+input,label{
+  padding-left: 40px;
+  align-self: center
 }
