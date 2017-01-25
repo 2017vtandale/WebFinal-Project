@@ -12,11 +12,11 @@ foreach($response->list as $temp)
   {
     foreach($temp as $row)
     {
-      echo("<li class="mdl-list__item mdl-list__item--three-line">
+      echo('<li class="mdl-list__item mdl-list__item--three-line">
         <span class="mdl-list__item-primary-content">
           <i class="material-icons mdl-list__item-avatar">person</i>
           <span>$row->name</span>
-        </span>");
+        </span>');
   }
 }
 }
