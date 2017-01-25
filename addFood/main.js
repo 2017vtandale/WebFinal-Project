@@ -13,3 +13,7 @@ loginbut.onclick = function(){
     xhttp.open("GET", "./getFood.php?food="+food.value, true);
     xhttp.send();
 }
+var itembut = document.getElementById('itembut');
+itembut.onclick= function(){
+  //upload to database and redirect to dashboard
+}
