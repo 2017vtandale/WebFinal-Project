@@ -8,6 +8,6 @@ loginbut.onclick = function(){
         //console.log("I got the text");
       }
     }
-    xhttp.open("GET", "./getFood.php?food="+food, true);
+    xhttp.open("GET", "./getFood.php?food="+food.value, true);
     xhttp.send();
 }
