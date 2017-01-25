@@ -7,7 +7,7 @@ loginbut.onclick = function(){
 
       if (this.readyState == 4 && this.status == 200) {
         console.log(this.responseText)
-        document.getElementById('foods').innerHTML = this.responseText;
+        document.getElementById('Foods').innerHTML = this.responseText;
       }
     }
     xhttp.open("GET", "./getFood.php?food="+food.value, true);
