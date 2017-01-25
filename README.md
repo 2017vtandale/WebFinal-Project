@@ -1,5 +1,4 @@
-<snippet><content>&lt;![CDATA[
-# ${1:Calorie Counter}
+# Calorie Counter
 A workout metric system that allows users to view their improvements visually, while inputting data about weight lifting maximums, food meals, etc.
 ## Contributing
 1\. Fork it!
