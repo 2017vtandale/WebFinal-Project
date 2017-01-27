@@ -14,6 +14,10 @@
       echo(pg_last_error($db));
    }
    else{
-      print_r(pg_fetch_all($ret));
+      $dataArr = pg_fetch_all($ret);
+      foreach($dataArr as $row)
+      {
+         print_r($row);
+      }
    }
  ?>
