@@ -15,6 +15,7 @@
    }
    else{
       $dataArr = pg_fetch_all($ret);
+      print_r($dataArr);
       echo("<table>");
       foreach($dataArr as $row)
       {
