@@ -1,6 +1,6 @@
 <?php
    $userID = $_REQUEST["userID"];
-
+   $date = $_REQUEST["currDate"];
    $host="host=ec2-54-83-49-44.compute-1.amazonaws.com";
    $dbname="dbname=d5ri1a2h6r334q";
    $user="user=wyvigddvdlnsdi";
@@ -16,15 +16,28 @@
    else{
       $dataArr = pg_fetch_all($ret);
       print_r($dataArr);
-      echo("<table>");
-      foreach($dataArr as $row)
-      {
-         echo("<tr>");
-         echo("<td>".$row[userid]."</td>");
-         echo("<td>".$row[mydate]."</td>");
-         echo("<td>".$row[mycals]."</td>");
-         echo("</tr>");
-      }
-      echo("</table>");
+      /*
+      Each item in dataArr is another entry where mydate = date, and mycals = cals
+      Goal is to create array of the ten items sorted chronologically
+      with the most recent 10 days being the ten spots in the array.
+
+      Example of what $dataArr looks like:
+
+      Array ( [0] => Array ( [userid] => 1 [mydate] => 121 [mycals] => 1000 )
+      [1] => Array ( [userid] => 1 [mydate] => 122 [mycals] => 1000 )
+      [2] => Array ( [userid] => 1 [mydate] => 123 [mycals] => 1100 ) )
+
+      */
+
+      $currDate = new myDate;
+      $currDate.myDay = $date.substr(strlen($currDate)-2, strlen($currDate)-1);
+      $currDate.myMonth = $date.substr(0, strlen($currDate)-3);
+      echo("Date: ".$currDate.myMonth.", ".$currDate.myDay);
+
+   }
+
+   class myDate {
+      public $myMonth;
+      public $myDay;
    }
  ?>
