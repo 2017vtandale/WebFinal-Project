@@ -20,9 +20,9 @@
       foreach($dataArr as $row)
       {
          echo("<tr>");
-         echo("<td>".$row[0]."</td>");
-         echo("<td>".$row[1]."</td>");
-         echo("<td>".$row[2]."</td>");
+         echo("<td>".$row[userid]."</td>");
+         echo("<td>".$row[mydate]."</td>");
+         echo("<td>".$row[mycals]."</td>");
          echo("</tr>");
       }
       echo("</table>");
