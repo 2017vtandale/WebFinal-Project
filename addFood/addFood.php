@@ -18,7 +18,7 @@ $url = "http://api.nal.usda.gov/ndb/reports/?format=json&ndbno=".$dbnum."&api_ke
 $response = file_get_contents($url);
 $response = json_decode($response);
 $nut =  $response->report->food->nutrients;
-$calories = (($nut[1]->value));
+$calories = intval(($nut[1]->value));
 $protein = intval(($nut[2]->value));
 $fat = intval(($nut[3]->value));
 $carb= intval(($nut[4]->value));
