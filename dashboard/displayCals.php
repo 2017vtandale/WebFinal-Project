@@ -57,13 +57,13 @@
          foreach ($dataArr as $curr) {
 
             //echo("User ID: " . $curr[userid] . ", Date: " . $curr[mydate] . ", Cals: " . $curr[mycals] . "<br />");
-            if ($curr[mydate] == $iterDate->toString()) {
+            if ($curr[mydate] == $iterDate->toString() && $curr[mycals] != "") {
                echo($curr[mycals] . ".");
                $echoed = true;
             }
          }
          //haven't found it
-         if($echoed == false){
+         if(! $echoed ){
             echo("0.");
          }
 
