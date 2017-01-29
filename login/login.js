@@ -8,5 +8,5 @@ var register = document.getElementById('Register');
 //   pw = pw.value;
 // };
 register.onclick = function(){
-  window.location = "../register";
+  window.location = "../register/index.html";
 }

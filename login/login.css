@@ -6,3 +6,11 @@
 	padding: 24px;
 	flex: none;
 }
+#Register{
+	display:inline-block;
+	float: right;
+}
+#loginbut{
+	display:inline-block;
+	float: left;
+}
