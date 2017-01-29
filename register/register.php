@@ -21,6 +21,7 @@
     $query = "INSERT INTO login VALUES('$user','$pw')";
     $ret = pg_query($query);
     if(!$ret){
+      echo("B");
       echo(pg_last_error($db));
     }
     else{
