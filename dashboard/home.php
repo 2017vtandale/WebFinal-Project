@@ -14,6 +14,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <link rel="stylesheet" href="style.css">
+
+    
     <!-- Script for Async Graph Creation -->
     <script src="asyncgraphv1.js"></script>
     <script>
@@ -22,6 +24,9 @@
          *   pushing to Heroku can be a pain. This generates a generic
          *   graph offline.
          */
+
+         /*
+
         document.addEventListener('DOMContentLoaded', function createGraph() {
             var today = new Date();
             var todayDate = (today.getMonth() + 1) + '-' + today.getDate();
@@ -79,6 +84,7 @@
                 options: {}
             });
         });
+        */
     </script>
 </head>
 

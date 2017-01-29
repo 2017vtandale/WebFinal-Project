@@ -30,7 +30,11 @@ function getData(userID, callback, errorCallback) {
             callback(dataSet);
         }
     };
-    xmlhttp.open("GET", "https://webfinal-project.herokuapp.com/displayDataDB.php", true);
+
+    var today = new Date();
+    var currDate = (today.getMonth()+1)+today.getDate();
+
+    xmlhttp.open("GET", "https://webfinal-project.herokuapp.com/dashboard/displayCals.php?userID="+userID+"&currDate="+currDate, true);
     xmlhttp.send();
     xmlhttp.onerror = function() {
       errorCallback('Network error.');
@@ -77,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //   Display data on graph --> end
 
     //User ID, pulling Test Data
-    var userID = 1;
+    var userID = parseInt("<?php echo($_GET['user']);?>");
 
     getData(userID, function(dataSet) {
         createGraph(dataSet);
