@@ -14,8 +14,8 @@ loginbut.onclick = function(){
     xhttp.open("GET", "./getFood.php?food="+food.value, true);
     xhttp.send();
 }
-var myFood = function(this){
-  var fooddb = this.id;
+var myFood = function(ele){
+  var fooddb = ele.id;
   console.log(fooddb);
   window.location = "./addFood.php?dbnum="+fooddb+"&user="+user;
 }
