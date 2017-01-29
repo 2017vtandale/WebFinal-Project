@@ -16,7 +16,6 @@
    }
    else{
       $dataArr = pg_fetch_all($ret);
-      print_r($dataArr);
       /*
       Each item in dataArr is another entry where mydate = date, and mycals = cals
       Goal is to create array of the ten items sorted chronologically
@@ -30,11 +29,39 @@
 
       */
 
+
+      //currDate is the current Date
       $currDate = new myDate();
-      echo($date . "\n");
       $currDate->set_day(substr($date, strlen($date)-2, strlen($date)-1));
       $currDate->set_month(substr($date, 0, strlen($date)-2));
-      echo("Date: " . $currDate->get_month() . ", " . $currDate->get_day());
+
+      for($x = 9; $x >= 0; $x--){
+         //iterDate is the Iteration Date who's calories we will echo
+         $iterDate = new myDate();
+
+         //check if one day is in the previous month
+         if($currDate->get_day() - $x <= 0){
+            $iterDate->set_month($currDate->get_month() - 1);
+            $iterDate->set_day(31 + ($currDate->get_day() - $x));
+         }
+         //move on
+         else{
+            $iterDate->set_month($currDate->get_month());
+            $iterDate->set_day($currDate->get_day() - $x);
+         }
+         //echo("Date: " . $iterDate->get_month() . ", " . $iterDate->get_day() . "\n");
+
+         //loop through dataArr and check if each pos has calorie data that we want
+         foreach ($dataArr as $curr) {
+            if ($curr[mydate] == $iterDate->toString()) {
+               echo($curr[mycals] . ".");
+            }
+            else {
+               echo("0.")
+            }
+         }
+
+      }
 
    }
  ?>
