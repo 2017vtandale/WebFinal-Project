@@ -22,7 +22,7 @@
     $ret = pg_query($db,$query);
     if(!$ret){
       echo("B");
-      echo(pg_last_error($db));
+      echo(pg_last_error());
     }
     else{
       echo("We Made it");
