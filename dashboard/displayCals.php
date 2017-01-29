@@ -16,7 +16,7 @@
    }
    else{
       $dataArr = pg_fetch_all($ret);
-      print_r($dataArr);
+      //print_r($dataArr);
       /*
       Each item in dataArr is another entry where mydate = date, and mycals = cals
       Goal is to create array of the ten items sorted chronologically
