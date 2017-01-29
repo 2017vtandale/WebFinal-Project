@@ -14,9 +14,8 @@
   $db = pg_pconnect($host." ".$dbname." ".$user." ".$port." ".$password);
   if(!$db){
              echo "Error : Unable to open database\n";
-          } else {
-             echo "Opened database successfully\n";
           }
+
   $user = htmlspecialchars($_POST["user"]);
   $pw = htmlspecialchars($_POST["pw"]);
   $pw1 = htmlspecialchars($_POST["pw1"]);
@@ -25,11 +24,11 @@
     $query = "INSERT INTO login (username, userpass) VALUES('$user','$pw');";
     $ret = pg_query($db,$query);
     if(!$ret){
-      echo("B");
+      //echo("B");
       echo(pg_last_error());
     }
     else{
-      echo("We Made it");
+      //echo("We Made it");
       redirect("../login/login.html",false);
     }
   }

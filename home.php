@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <!-- Created by Sishaar Rao -->
 <html>
@@ -59,7 +60,9 @@
 
 <body>
     <div class="jumbotron text-center">
-        <h1>Welcome User: </h1>
+        <h1>Welcome User: <?php
+        echo($_GET["user"]);?>
+      </h1>
         <p>Last updated: </p>
     </div>
 
