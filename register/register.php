@@ -16,10 +16,10 @@
   $user = htmlspecialchars($_POST["user"]);
   $pw = htmlspecialchars($_POST["pw"]);
   $pw1 = htmlspecialchars($_POST["pw1"]);
-  echo($pw==$pw1);
+  //echo($pw==$pw1);
   if($pw==$pw1){
-    $query = "INSERT INTO login VALUES('$user','$pw')";
-    $ret = pg_query($query);
+    $query = "INSERT INTO login (username, userpass) VALUES('$user','$pw');";
+    $ret = pg_query($db,$query);
     if(!$ret){
       echo("B");
       echo(pg_last_error($db));
