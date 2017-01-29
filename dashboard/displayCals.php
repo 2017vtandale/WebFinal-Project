@@ -16,6 +16,7 @@
    }
    else{
       $dataArr = pg_fetch_all($ret);
+      print_r($dataArr . "\n");
       /*
       Each item in dataArr is another entry where mydate = date, and mycals = cals
       Goal is to create array of the ten items sorted chronologically
@@ -53,12 +54,13 @@
 
          //loop through dataArr and check if each pos has calorie data that we want
          foreach ($dataArr as $curr) {
-            if ($curr[mydate] == $iterDate->toString()) {
+            echo("User ID: " . $curr[userid] . ", Date: " . $curr[mydate] . ", Cals: " . $curr[mycals] . "\n");
+            /*if ($curr[mydate] == $iterDate->toString()) {
                echo($curr[mycals] . ".");
             }
             else {
                echo("0.");
-            }
+            }*/
          }
 
       }
