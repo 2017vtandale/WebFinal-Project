@@ -53,14 +53,18 @@
          //echo("Date: " . $iterDate->get_month() . ", " . $iterDate->get_day() . "\n");
 
          //loop through dataArr and check if each pos has calorie data that we want
+         $echoed = false;
          foreach ($dataArr as $curr) {
-            echo("User ID: " . $curr[userid] . ", Date: " . $curr[mydate] . ", Cals: " . $curr[mycals] . "\n");
-            /*if ($curr[mydate] == $iterDate->toString()) {
+
+            //echo("User ID: " . $curr[userid] . ", Date: " . $curr[mydate] . ", Cals: " . $curr[mycals] . "<br />");
+            if ($curr[mydate] == $iterDate->toString()) {
                echo($curr[mycals] . ".");
+               $echoed = true;
             }
-            else {
-               echo("0.");
-            }*/
+         }
+         //haven't found it
+         if($echoed == false){
+            echo("0.");
          }
 
       }
