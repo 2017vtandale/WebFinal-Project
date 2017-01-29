@@ -1,4 +1,11 @@
 <?php
+  function redirect($url, $statusCode = 303)
+  {
+   echo('<script>
+   window.location = "'.$url.'";
+   </script>');
+  }
+
   $host="host=ec2-54-235-84-244.compute-1.amazonaws.com";
   $dbname="dbname=d1ovq05vs2aqii";
   $user="user=nxamshinupbnkg";
@@ -13,14 +20,13 @@
     $query = "INSERT INTO login VALUES('$user','$pw')";
     $ret = pg_query($query);
     if(!$ret){
-      echo(pg_last_error($db));
     }
     else{
-      echo "We Made It"
-      header("Location: ../login/login.html");
+      echo("We Made it");
+      redirect("../login/login.html",false);
     }
   }
   else{
-    header("Location: ./index.html");
+    redirect("./index.html",false);
   }
 ?>

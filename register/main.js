@@ -7,6 +7,3 @@ var register = document.getElementById('Register');
 //   un = username.value;
 //   pw = pw.value;
 // };
-register.onclick = function(){
-  window.location = "../register";
-}
