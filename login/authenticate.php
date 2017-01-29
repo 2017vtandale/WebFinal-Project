@@ -28,7 +28,7 @@ if(!$ret)
 else
   {
       while ($row = pg_fetch_row($ret)) {
-        echo($row[0]." ".$row[1]."\n");
+        //echo($row[0]." ".$row[1]."\n");
         echo(($row[0]==$user)." ".($row[1]==$pw));
         $isuser = ($row[0]==$user && $row[1]==$pw);
         if($isuser){
