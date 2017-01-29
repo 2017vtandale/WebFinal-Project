@@ -106,62 +106,41 @@
     </div>
 
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-md-8">
             <table class="table">
                 <thead>
                     <tr>
                         <th>Date</th>
                         <th>Calories</th>
-                        <th>Macros</th>
+                        <th>Protein</th>
+                        <th>Carb</th>
+                        <th>Fat</th>
                     </tr>
                 </thead>
                 <tbody id="tableBody">
                     <!-- Generic Table Information -->
                     <tr>
                         <td>1/20</td>
-                        <td>1050</td>
-                        <td>200</td>
+                        <td>3000</td>
+                        <td>180</td>
+                        <td>350</td>
+                        <td>100</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div id="addCalories" class="col-sm-3">
-            <h2>Add Calorie Data</h2>
+        <div id="addFood" class="col-sm-3">
+            <h2>Add Food Data</h2>
             <form class="form-horizontal">
                 <div class="form-group">
                     <label class="control-label" for="email">Date:</label>
                     <input type="date" class="form-control" id="date" placeholder="Enter Date">
                 </div>
                 <div class="form-group">
-                    <label class="control-label" for="calories">Calorie Intake:</label>
-                    <input type="calories" class="form-control" id="calories" placeholder="Enter Caloric Intake">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-default">Submit</button>
+                    <button type="submit" class="btn btn-default">Add Food</button>
                 </div>
             </form>
         </div>
-        <div class="col-sm-1"></div>
-        <div id="addMacros" class="col-sm-3">
-            <h2>Add Macros Data</h2>
-            <form class="form-horizontal">
-                <div class="form-group">
-                    <label class="control-label" for="email">Date:</label>
-                    <input type="date" class="form-control" id="date2" placeholder="Enter Date">
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="macros">Macro Intake:</label>
-                    <input type="macros" class="form-control" id="macros" placeholder="Enter Macro Intake">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-default">Submit</button>
-
-                </div>
-            </form>
-        </div>
-        <div class="col-sm-1"></div>
-    </div>
-
 
     <div id=status></div>
 </body>
