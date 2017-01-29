@@ -20,21 +20,21 @@ $query = "SELECT * FROM login";
 $ret = pg_query($query);
 $user = htmlspecialchars($_POST["user"]);
 $pw = htmlspecialchars($_POST["pw"]);
+echo($user." ".$pw);
 if(!$ret)
-{
-
-  echo(pg_last_error());
-}
+  {
+    echo(pg_last_error());
+  }
 else
-{
-    while ($row = pg_fetch_row($ret)) {
-      $isuser = $row[0]==$user && $row[1]==$pw;
-      if($isuser){
-        redirect("../index.php");
+  {
+      while ($row = pg_fetch_row($ret)) {
+        $isuser = $row[0]==$user && $row[1]==$pw;
+        if($isuser){
+          redirect("../index.php",false);
+        }
       }
-    }
-    if(!$isuser){
-      redirect("./login.html");
-    }
-}
+      if(!$isuser){
+        redirect("./login.html",false);
+      }
+  }
   ?>
