@@ -1,29 +1,40 @@
 <?php
-$host="host=ec2-54-235-84-244.compute-1.amazonaws.com";
-$dbname="dbname=d1ovq05vs2aqii";
-$user="user=nxamshinupbnkg";
+function redirect($url, $statusCode = 303)
+{
+ echo('<script>
+ window.location = "'.$url.'";
+ </script>');
+}
+
+$host="host=ec2-54-83-49-44.compute-1.amazonaws.com";
+$dbname="dbname=d5ri1a2h6r334q";
+$user="user=wyvigddvdlnsdi";
 $port="port=5432";
-$password="password=758dac437d2f27d11f6431307baf1bf13569730baa40b8c86cdb77291cb8aea8";
+$password="password=085b65180ffaae50a448d5fc2935f7ef9c49bab3c0b0a3761ce7714e7642a50d";
 $db = pg_pconnect($host." ".$dbname." ".$user." ".$port." ".$password);
-$isuser = false;
-//$query = "CREATE TABLE Login(user varchar(255) , pass varchar(255) )";
-//$query = "CREATE TABLE login(username varchar(255), userpass varchar(255)  )";
+if(!$db){
+           echo "Error : Unable to open database\n";
+        }
+
 $query = "SELECT * FROM login";
 $ret = pg_query($query);
 $user = htmlspecialchars($_POST["user"]);
 $pw = htmlspecialchars($_POST["pw"]);
-if(!$ret){
-echo(pg_last_error($db));
+if(!$ret)
+{
+
+  echo(pg_last_error());
 }
-else{
-  while ($row = pg_fetch_row($ret)) {
-    $isuser = $row[0]==$user && $row[1]==$pw;
-    if($isuser){
-      header("Location: ../home.html");
+else
+{
+    while ($row = pg_fetch_row($ret)) {
+      $isuser = $row[0]==$user && $row[1]==$pw;
+      if($isuser){
+        redirect("../index.php");
+      }
     }
-  }
-  if(!$isuser){
-    header("Location: ./login.html");
-  }
+    if(!$isuser){
+      redirect("./login.html");
+    }
 }
   ?>
