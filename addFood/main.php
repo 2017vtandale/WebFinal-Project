@@ -18,7 +18,8 @@
 </form>
 <?php
 $user  = $_GET["user"];
-echo('<div class ="user" id = "'.$user.'"');
+echo('<div class ="user" id = "'.$user.'">
+</div>');
 ?>
   <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="loginbut">Add Food</button></span>
 
