@@ -32,7 +32,7 @@ else
         echo(($row[0]==$user)." ".($row[1]==$pw));
         $isuser = ($row[0]==$user && $row[1]==$pw);
         if($isuser){
-          redirect("../home.html",false);
+          redirect("../home.php?user=".$user,false);
         }
       }
       if(!$isuser){
