@@ -30,8 +30,8 @@
       */
 
       $currDate = new myDate;
-      $currDate.myDay = $date.substr(strlen($currDate)-2, strlen($currDate)-1);
-      $currDate.myMonth = $date.substr(0, strlen($currDate)-3);
+      $currDate->myDay = $date.substr(strlen($currDate)-2, strlen($currDate)-1);
+      $currDate->myMonth = $date.substr(0, strlen($currDate)-3);
       echo("Date: ".$currDate.myMonth.", ".$currDate.myDay);
 
    }
