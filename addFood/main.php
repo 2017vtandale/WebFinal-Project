@@ -16,7 +16,10 @@
         </div>
 
 </form>
-<?php <div class ="user" id = "".$_GET["user"];."" ?>
+<?php
+$user  = $_GET["user"];
+echo('<div class ="user" id = "'.$user.'"');
+?>
   <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="loginbut">Add Food</button></span>
 
 <ul class="options mdl-list" id="Foods">
