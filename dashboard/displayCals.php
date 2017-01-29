@@ -58,13 +58,19 @@
 
             //echo("User ID: " . $curr[userid] . ", Date: " . $curr[mydate] . ", Cals: " . $curr[mycals] . "<br />");
             if ($curr[mydate] == $iterDate->toString() && $curr[mycals] != "") {
-               echo($curr[mycals] . ".");
+               echo($curr[mycals]);
+               if($x != 0){
+                  echo(".");
+               }
                $echoed = true;
             }
          }
          //haven't found it
          if(! $echoed ){
-            echo("0.");
+            echo("0");
+            if($x != 0){
+               echo(".");
+            }
          }
 
       }
