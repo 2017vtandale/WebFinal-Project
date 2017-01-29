@@ -24,10 +24,10 @@
     }
     else{
       echo("We Made it");
-      redirect("../login/login.html",false);
+      //redirect("../login/login.html",false);
     }
   }
   else{
-    redirect("./index.html",false);
+    //redirect("./index.html",false);
   }
 ?>
