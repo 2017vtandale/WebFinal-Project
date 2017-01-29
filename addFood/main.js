@@ -1,5 +1,6 @@
 var loginbut = document.getElementById('loginbut');
 var food = document.getElementById('foodname');
+var user = document.getElementsByClassName("user")[0].id;
 loginbut.onclick = function(){
   console.log(food.value);
   var xhttp = new XMLHttpRequest();
@@ -13,7 +14,7 @@ loginbut.onclick = function(){
     xhttp.open("GET", "./getFood.php?food="+food.value, true);
     xhttp.send();
 }
-var itembut = document.getElementById('itembut');
-itembut.onclick= function(){
-  //upload to database and redirect to dashboard
+var myFood = function(){
+  var fooddb = this.id;
+  
 }

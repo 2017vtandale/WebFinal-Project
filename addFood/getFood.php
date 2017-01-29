@@ -14,7 +14,7 @@ foreach($response->list as $temp)
   {
     foreach($temp as $row)
     {
-    echo('<li class="mdl-list__item mdl-button mdl-js-button" id = "itembut '.$row->nbdno.'"><span class="mdl-list__item-primary-content">'.$row->name.'</span></li>');
+    echo('<li class="mdl-list__item mdl-button mdl-js-button itembut" id ="'.$row->nbdno.'" onclick = "addFood()"><span class="mdl-list__item-primary-content">'.$row->name.'</span></li>');
   }
 }
 }

@@ -9,13 +9,14 @@
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
-    <span><form>
+    <form>
         <div class="mdl-textfield mdl-js-textfield">
             <input class="mdl-textfield__input" type="text" id="foodname" name = "food"/>
             <label class="mdl-textfield__label" for="Food">Food Name</label>
         </div>
 
 </form>
+<?php <div class ="user" id = "".$_GET["user"];."" ?>
   <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="loginbut">Add Food</button></span>
 
 <ul class="options mdl-list" id="Foods">
