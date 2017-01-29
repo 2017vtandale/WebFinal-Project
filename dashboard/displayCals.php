@@ -1,4 +1,5 @@
 <?php
+   include("myDate.php");
    $userID = $_REQUEST["userID"];
    $date = $_REQUEST["currDate"];
    $host="host=ec2-54-83-49-44.compute-1.amazonaws.com";
@@ -29,15 +30,44 @@
 
       */
 
-      $currDate = new myDate;
-      $currDate->myDay = $date.substr(strlen($date)-2, strlen($date)-1);
-      $currDate->myMonth = $date.substr(0, strlen($date)-3);
-      echo("Date: ".$currDate.myMonth.", ".$currDate.myDay);
 
-   }
+      //currDate is the current Date
+      $currDate = new myDate();
+      $currDate->set_day(substr($date, strlen($date)-2, strlen($date)-1));
+      $currDate->set_month(substr($date, 0, strlen($date)-2));
 
-   class myDate {
-      public $myMonth;
-      public $myDay;
+      for($x = 9; $x >= 0; $x--){
+         //iterDate is the Iteration Date who's calories we will echo
+         $iterDate = new myDate();
+
+         //check if one day is in the previous month
+         if($currDate->get_day() - $x <= 0){
+            $iterDate->set_month($currDate->get_month() - 1);
+            $iterDate->set_day(31 + ($currDate->get_day() - $x));
+         }
+         //move on
+         else{
+            $iterDate->set_month($currDate->get_month());
+            $iterDate->set_day($currDate->get_day() - $x);
+         }
+         //echo("Date: " . $iterDate->get_month() . ", " . $iterDate->get_day() . "\n");
+
+         //loop through dataArr and check if each pos has calorie data that we want
+         $echoed = false;
+         foreach ($dataArr as $curr) {
+
+            //echo("User ID: " . $curr[userid] . ", Date: " . $curr[mydate] . ", Cals: " . $curr[mycals] . "<br />");
+            if ($curr[mydate] == $iterDate->toString()) {
+               echo($curr[mycals] . ".");
+               $echoed = true;
+            }
+         }
+         //haven't found it
+         if($echoed == false){
+            echo("0.");
+         }
+
+      }
+
    }
  ?>
