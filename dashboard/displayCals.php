@@ -31,9 +31,9 @@
       */
 
       $currDate = new myDate;
-      echo($date . "/n");
-      $currDate.set_day($date.substr(strlen($date)-2, strlen($date)-1));
-      $currDate.set_month($date.substr(0, strlen($date)-3));
+      echo($date . "\n");
+      $currDate.set_day(substr($date, strlen($date)-2, strlen($date)-1));
+      $currDate.set_month(substr($date, 0, strlen($date)-3));
       echo("Date: " . $currDate.get_month() . ", " . $currDate.get_day());
 
    }
