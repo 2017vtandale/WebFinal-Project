@@ -198,7 +198,7 @@
             }
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    renderStatus("successfully added data");
+                    window.location.reload(true);
                 }
             };
 
@@ -273,7 +273,7 @@
                     <input type="calories" class="form-control" id="calories" placeholder="Enter Caloric Intake">
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-default" onclick="addCalories()">Submit</button>
+                    <button class="btn btn-default" onclick="addCalories()">Submit</button>
                 </div>
             </form>
         </div>
