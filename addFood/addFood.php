@@ -27,7 +27,7 @@ $date = date("Y/m/d");
 //echo($date);
 //echo("made it");
 //echo($calories." ".$protein." ".$fat." ".$card."\n");
-$query = "INSERT INTO food VALUES ('$user','$date','($calories)','($protein)','($fat)','intval($carb)');";
+$query = "INSERT INTO food VALUES ('$user','$date','$calories','$protein','$fat','$carb');";
 $ret = pg_query($db,$query);
 if(!$ret){
   //echo("B");
