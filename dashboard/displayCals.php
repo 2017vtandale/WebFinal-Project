@@ -1,4 +1,5 @@
 <?php
+   include("myDate.php");
    $userID = $_REQUEST["userID"];
    $date = $_REQUEST["currDate"];
    $host="host=ec2-54-83-49-44.compute-1.amazonaws.com";
@@ -30,14 +31,10 @@
       */
 
       $currDate = new myDate;
-      $currDate->myDay = $date.substr(strlen($date)-2, strlen($date)-1);
-      $currDate->myMonth = $date.substr(0, strlen($date)-3);
-      echo("Date: ".$currDate.myMonth.", ".$currDate.myDay);
+      echo($date . "/n");
+      $currDate.set_day($date.substr(strlen($date)-2, strlen($date)-1));
+      $currDate.set_month($date.substr(0, strlen($date)-3));
+      echo("Date: " . $currDate.get_month() . ", " . $currDate.get_day());
 
-   }
-
-   class myDate {
-      public $myMonth;
-      public $myDay;
    }
  ?>
