@@ -20,7 +20,7 @@ $query = "SELECT * FROM login";
 $ret = pg_query($query);
 $user = htmlspecialchars($_POST["user"]);
 $pw = htmlspecialchars($_POST["pw"]);
-echo($user." ".$pw);
+//echo($user." ".$pw);
 if(!$ret)
   {
     echo(pg_last_error());
@@ -28,6 +28,7 @@ if(!$ret)
 else
   {
       while ($row = pg_fetch_row($ret)) {
+        echo($row[0]." ".$row[1]);
         $isuser = $row[0]==$user && $row[1]==$pw;
         if($isuser){
           redirect("../index.php",false);
