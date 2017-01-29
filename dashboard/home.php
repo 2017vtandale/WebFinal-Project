@@ -172,7 +172,7 @@
             //   Display data on graph --> end
 
             //User ID, pulling Test Data
-            var userID = <?php echo(json_encode($$_GET['user'])); ?>;
+            var userID = <?php echo(json_encode($_GET['user'])); ?>;
 
             getData(userID, function(dataSet) {
                 createGraph(dataSet);
