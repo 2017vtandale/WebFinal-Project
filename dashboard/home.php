@@ -19,6 +19,7 @@
     <!-- Script for Async Graph Creation
     <script src="asyncgraphv1.js"></script>
     -->
+    <!-- Script for Offline creation of Chart -->
     <script>
         /*
          *   Script used to create UI offline, because repeatedly
@@ -88,6 +89,7 @@
         */
     </script>
 
+    <!-- Script that renders current user's chart -->
     <script type="text/javascript">
         // Created by Sishaar Rao
         // This is an aynchronous creation of a graph utilizing Chart.js
@@ -126,7 +128,7 @@
             var currDate = (today.getMonth()+1) + "" + today.getDate();
 
             xmlhttp.open("GET", "https://webfinal-project.herokuapp.com/dashboard/displayCals.php?userID="+userID+"&currDate="+currDate, true);
-            renderStatus("https://webfinal-project.herokuapp.com/dashboard/displayCals.php?userID="+userID+"&currDate="+currDate);
+            //renderStatus("https://webfinal-project.herokuapp.com/dashboard/displayCals.php?userID="+userID+"&currDate="+currDate);
             xmlhttp.send();
             xmlhttp.onerror = function() {
               errorCallback('Network error.');
@@ -184,6 +186,30 @@
 
     </script>
 
+    <!-- Script that allows users to add data -->
+    <script type="text/javascript">
+        function addCalories() {
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    renderStatus("successfully added data");
+                }
+            };
+
+            var userID = <?php echo(json_encode($_GET['user'])); ?>;
+            var date = document.getElementById("calsMonth").value() + document.getElementById("calsDay").value();
+            var cals = document.getElementById("calories").value();
+
+            xmlhttp.open("POST", "https://webfinal-project.herokuapp.com/dashboard/addCals.php?userID="+userID+"&date="+date+"&cals="+cals, true);
+            xmlhttp.send();
+        }
+    </script>
 
 
 </head>
@@ -235,15 +261,19 @@
             <h2>Add Calorie Data</h2>
             <form class="form-horizontal">
                 <div class="form-group">
-                    <label class="control-label" for="email">Date:</label>
-                    <input type="date" class="form-control" id="date" placeholder="Enter Date">
+                    <label class="control-label" for="calsMonth">Month:</label>
+                    <input type="calsMonth" class="form-control" id="calsMonth" placeholder="Enter Number of Month">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="calsDay">Day:</label>
+                    <input type="calsDay" class="form-control" id="calsDay" placeholder="Enter Number of Day">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="calories">Calorie Intake:</label>
                     <input type="calories" class="form-control" id="calories" placeholder="Enter Caloric Intake">
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-default">Submit</button>
+                    <button type="submit" class="btn btn-default" onclick="addCalories()">Submit</button>
                 </div>
             </form>
         </div>
@@ -252,8 +282,12 @@
             <h2>Add Macros Data</h2>
             <form class="form-horizontal">
                 <div class="form-group">
-                    <label class="control-label" for="email">Date:</label>
-                    <input type="date" class="form-control" id="date2" placeholder="Enter Date">
+                    <label class="control-label" for="macrosMonth">Month:</label>
+                    <input type="macrosMonth" class="form-control" id="macrosMonth" placeholder="Enter Number of Month">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="macrosDay">Day:</label>
+                    <input type="macrosDay" class="form-control" id="macrosDay" placeholder="Enter Number of Day">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="macros">Macro Intake:</label>
