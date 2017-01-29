@@ -123,7 +123,7 @@
             };
 
             var today = new Date();
-            var currDate = (today.getMonth()+1)+today.getDate();
+            var currDate = (today.getMonth()+1) + "" + today.getDate();
 
             xmlhttp.open("GET", "https://webfinal-project.herokuapp.com/dashboard/displayCals.php?userID="+userID+"&currDate="+currDate, true);
             renderStatus("https://webfinal-project.herokuapp.com/dashboard/displayCals.php?userID="+userID+"&currDate="+currDate);
