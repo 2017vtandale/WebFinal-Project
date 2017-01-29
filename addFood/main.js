@@ -16,5 +16,6 @@ loginbut.onclick = function(){
 }
 var myFood = function(){
   var fooddb = this.id;
+  console.log(fooddb);
   window.location = "./addFood.php?dbnum="+fooddb+"&user="+user;
 }
