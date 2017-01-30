@@ -175,7 +175,7 @@
 
             var table = document.getElementById(tableBody);
             var finalStr = "";
-            for (var i = 9; i >= 0; i++) {
+            for (var i = 9; i >= 0; i--) {
                 finalStr += "<tr>";
                 finalStr += "<td>" + dateLabels[i] + "</td>";
                 finalStr += "<td>" + dataSet[i] + "</td>";
