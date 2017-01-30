@@ -164,6 +164,27 @@
             });
         }
 
+        function fillTable(dataSet){
+
+            var today = new Date();
+            var todayDate = (today.getMonth()+1)+'-'+today.getDate();
+            var dateLabels = [];
+            for(i = 9; i >= 0; i--){
+              dateLabels.push((today.getMonth()+1)+'-'+(today.getDate()-i));
+            }
+
+            var table = document.getElementById(tableBody);
+            var finalStr = "";
+            for (var i = 9; i >= 0; i++) {
+                finalStr += "<tr>";
+                finalStr += "<td>" + dateLabels[i] + "</td>";
+                finalStr += "<td>" + dataSet[i] + "</td>";
+                finalStr += "</tr>";
+            }
+            table.innerHTML = finalStr;
+
+        }
+
         function renderStatus(statusText) {
             document.getElementById('status').textContent = statusText;
         }
@@ -178,6 +199,7 @@
 
             getData(userID, function(dataSet) {
                 createGraph(dataSet);
+                fillTable(dataset);
             }, function(errorMessage) {
                 renderStatus('Error: ' + errorMessage);
             });
