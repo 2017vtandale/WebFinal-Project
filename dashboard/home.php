@@ -386,8 +386,7 @@
                     <input type="macros" class="form-control" id="macros" placeholder="Enter Macro Intake">
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-default">Submit</button>
-
+                    <input type="button" class="btn btn-default" onclick="addMacros()" value="Submit" />
                 </div>
             </form>
         </div>
