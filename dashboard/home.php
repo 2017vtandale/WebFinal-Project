@@ -192,7 +192,7 @@
             var userID = <?php echo(json_encode($_GET['user'])); ?>;
             var date = document.getElementById("calsMonth").value() + document.getElementById("calsDay").value();
             var cals = document.getElementById("calories").value();
-            
+
             if (window.XMLHttpRequest) {
                 // code for IE7+, Firefox, Chrome, Opera, Safari
                 xmlhttp = new XMLHttpRequest();
@@ -202,7 +202,7 @@
             }
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    window.location = "./home.php?user="+userID;
+                    window.location.replace(window.location.href);
                 }
             };
 
