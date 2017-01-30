@@ -109,7 +109,7 @@
          */
 
 
-        function getData(userID, callback, errorCallback) {
+        function getCalorieData(userID, callback, errorCallback) {
             if (window.XMLHttpRequest) {
                 // code for IE7+, Firefox, Chrome, Opera, Safari
                 xmlhttp = new XMLHttpRequest();
@@ -135,6 +135,32 @@
           };
         }
 
+        function getMacrosData(userID, callback, errorCallback) {
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var dataSet = this.responseText.split('.');
+                    callback(dataSet);
+                }
+            };
+
+            var today = new Date();
+            var currDate = (today.getMonth()+1) + "" + today.getDate();
+
+            xmlhttp.open("GET", "https://webfinal-project.herokuapp.com/dashboard/displayMacros.php?userID="+userID+"&currDate="+currDate, true);
+            //renderStatus("https://webfinal-project.herokuapp.com/dashboard/displayCals.php?userID="+userID+"&currDate="+currDate);
+            xmlhttp.send();
+            xmlhttp.onerror = function() {
+              errorCallback('Network error.');
+          };
+        }
+
         /**
          *
          * @param {function(array)} createGraph - asynchronous method once the dataSet is
@@ -142,7 +168,7 @@
          *
          */
 
-        function createGraph(dataSet) {
+        function createCalorieGraph(dataSet) {
 
             var today = new Date();
             var todayDate = (today.getMonth()+1)+'-'+today.getDate();
@@ -157,6 +183,28 @@
                     labels: dateLabels,
                     datasets: [{
                         label: "Calorie Count",
+                        data: dataSet,
+                    }]
+                },
+                options: {}
+            });
+        }
+
+        function createMacrosGraph(dataSet) {
+
+            var today = new Date();
+            var todayDate = (today.getMonth()+1)+'-'+today.getDate();
+            var dateLabels = [];
+            for(i = 9; i >= 0; i--){
+              dateLabels.push((today.getMonth()+1)+'-'+(today.getDate()-i));
+            }
+            var ctx = document.getElementById("macrosChart").getContext("2d");
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: dateLabels,
+                    datasets: [{
+                        label: "Macros Count",
                         data: dataSet,
                     }]
                 },
@@ -197,9 +245,15 @@
             //User ID, pulling Test Data
             var userID = <?php echo(json_encode($_GET['user'])); ?>;
 
-            getData(userID, function(dataSet) {
-                createGraph(dataSet);
+            getCalorieData(userID, function(dataSet) {
+                createCalorieGraph(dataSet);
                 fillTable(dataSet);
+            }, function(errorMessage) {
+                renderStatus('Error: ' + errorMessage);
+            });
+
+            getMacrosData(userID, function(dataSet) {
+                createMacrosGraph(dataSet);
             }, function(errorMessage) {
                 renderStatus('Error: ' + errorMessage);
             });
@@ -250,13 +304,7 @@
             <canvas id="calorieChart"></canvas>
         </div>
         <div id="chart-box" class="col-sm-6">
-            <canvas id="proteinChart"></canvas>
-        </div>
-        <div id="chart-box" class="col-sm-6">
-            <canvas id="carbChart"></canvas>
-        </div>
-        <div id="chart-box" class="col-sm-6">
-            <canvas id="fatChart"></canvas>
+            <canvas id="macrosChart"></canvas>
         </div>
     </div>
 
