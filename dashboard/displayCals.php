@@ -57,7 +57,7 @@
          foreach ($dataArr as $curr) {
 
             //echo("User ID: " . $curr[userid] . ", Date: " . $curr[mydate] . ", Cals: " . $curr[mycals] . "<br />");
-            if ($curr[mydate] == $iterDate->toString() && $curr[mycals] != "") {
+            if ($curr[mydate] == $iterDate->toString() && $curr[mycals] != "" && ! $echoed) {
                echo($curr[mycals]);
                if($x != 0){
                   echo(".");
