@@ -173,7 +173,7 @@
               dateLabels.push((today.getMonth()+1)+'-'+(today.getDate()-i));
             }
 
-            var table = document.getElementById(tableBody);
+            var table = document.getElementById("tableBody");
             var finalStr = "";
             for (var i = 9; i >= 0; i--) {
                 finalStr += "<tr>";
