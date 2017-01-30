@@ -212,7 +212,7 @@
             });
         }
 
-        function fillTable(dataSet){
+        function fillTable(calorieDataSet, macrosDataSet){
 
             var today = new Date();
             var todayDate = (today.getMonth()+1)+'-'+today.getDate();
@@ -226,7 +226,8 @@
             for (var i = 9; i >= 0; i--) {
                 finalStr += "<tr>";
                 finalStr += "<td>" + dateLabels[i] + "</td>";
-                finalStr += "<td>" + dataSet[i] + "</td>";
+                finalStr += "<td>" + calorieDataSet[i] + "</td>";
+                finalStr += "<td>" + macrosDataSet[i] + "</td>";
                 finalStr += "</tr>";
             }
             table.innerHTML = finalStr;
@@ -245,15 +246,19 @@
             //User ID, pulling Test Data
             var userID = <?php echo(json_encode($_GET['user'])); ?>;
 
+            var calorieDataSet;
+            var macrosDataSet;
             getCalorieData(userID, function(dataSet) {
                 createCalorieGraph(dataSet);
-                fillTable(dataSet);
+                calorieDataSet= dataSet;
             }, function(errorMessage) {
                 renderStatus('Error: ' + errorMessage);
             });
 
             getMacrosData(userID, function(dataSet) {
                 createMacrosGraph(dataSet);
+                macrosDataSet = dataSet;
+                fillTable(caloriesDataSet, macrosDataSet);
             }, function(errorMessage) {
                 renderStatus('Error: ' + errorMessage);
             });
