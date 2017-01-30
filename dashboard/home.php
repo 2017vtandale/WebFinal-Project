@@ -199,7 +199,7 @@
 
             getData(userID, function(dataSet) {
                 createGraph(dataSet);
-                fillTable(dataset);
+                fillTable(dataSet);
             }, function(errorMessage) {
                 renderStatus('Error: ' + errorMessage);
             });
