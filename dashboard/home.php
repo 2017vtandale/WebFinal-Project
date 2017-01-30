@@ -202,7 +202,7 @@
             }
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    window.location = "./home.php?user="+userID);
+                    window.location = "./home.php?user="+userID;
                 }
             };
 
