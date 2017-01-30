@@ -9,6 +9,18 @@ $db = pg_pconnect($host." ".$dbname." ".$user." ".$port." ".$password);
    /*
       Create Data Table
    */
+
+   $query = "CREATE TABLE CalorieDataSet(userID text, myDate text, myCals text)";
+
+   $ret = pg_query($query);
+   if(!$ret){
+      echo(pg_last_error($db));
+   }
+   else{
+      echo("success");
+   }
+
+
    $query = "CREATE TABLE MacrosDataSet(userID text, myDate text, myMacros text)";
 
    $ret = pg_query($query);
