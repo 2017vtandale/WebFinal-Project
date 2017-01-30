@@ -188,6 +188,9 @@
 
     <!-- Script that allows users to add data -->
     <script type="text/javascript">
+        var userID = <?php echo(json_encode($_GET['user'])); ?>;
+        var date = document.getElementById("calsMonth").value() + document.getElementById("calsDay").value();
+        var cals = document.getElementById("calories").value();
         function addCalories() {
             if (window.XMLHttpRequest) {
                 // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -198,13 +201,9 @@
             }
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    window.location.reload(true);
+                    window.location = "./home.php?userID="+userID;
                 }
             };
-
-            var userID = <?php echo(json_encode($_GET['user'])); ?>;
-            var date = document.getElementById("calsMonth").value() + document.getElementById("calsDay").value();
-            var cals = document.getElementById("calories").value();
 
             xmlhttp.open("POST", "https://webfinal-project.herokuapp.com/dashboard/addCals.php?userID="+userID+"&date="+date+"&cals="+cals, true);
             xmlhttp.send();
