@@ -274,7 +274,7 @@
                     <input type="calories" class="form-control" id="calories" placeholder="Enter Caloric Intake">
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-default" onclick="addCalories()">Submit</button>
+                    <input type="button" class="btn btn-default" onclick="addCalories()" value="Submit" />
                 </div>
             </form>
         </div>
