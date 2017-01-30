@@ -188,10 +188,11 @@
 
     <!-- Script that allows users to add data -->
     <script type="text/javascript">
-        var userID = <?php echo(json_encode($_GET['user'])); ?>;
-        var date = document.getElementById("calsMonth").value() + document.getElementById("calsDay").value();
-        var cals = document.getElementById("calories").value();
         function addCalories() {
+            var userID = <?php echo(json_encode($_GET['user'])); ?>;
+            var date = document.getElementById("calsMonth").value() + document.getElementById("calsDay").value();
+            var cals = document.getElementById("calories").value();
+            
             if (window.XMLHttpRequest) {
                 // code for IE7+, Firefox, Chrome, Opera, Safari
                 xmlhttp = new XMLHttpRequest();
