@@ -283,7 +283,28 @@
             };
 
             xmlhttp.open("POST", "https://webfinal-project.herokuapp.com/dashboard/addCals.php?userID="+userID+"&date="+date+"&cals="+cals, true);
-            console.log("https://webfinal-project.herokuapp.com/dashboard/addCals.php?userID="+userID+"&date="+date+"&cals="+cals);
+            xmlhttp.send();
+        }
+
+        function addMacros() {
+            var userID = <?php echo(json_encode($_GET['user'])); ?>;
+            var date = document.getElementById("macrosMonth").value + "" + document.getElementById("macrosDay").value;
+            var macros = document.getElementById("macros").value;
+
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    window.location = "./home.php?user="+userID;
+                }
+            };
+
+            xmlhttp.open("POST", "https://webfinal-project.herokuapp.com/dashboard/addMacros.php?userID="+userID+"&date="+date+"&macros="+macros, true);
             xmlhttp.send();
         }
     </script>
