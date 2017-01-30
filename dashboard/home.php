@@ -207,6 +207,7 @@
             };
 
             xmlhttp.open("POST", "https://webfinal-project.herokuapp.com/dashboard/addCals.php?userID="+userID+"&date="+date+"&cals="+cals, true);
+            console.log("https://webfinal-project.herokuapp.com/dashboard/addCals.php?userID="+userID+"&date="+date+"&cals="+cals);
             xmlhttp.send();
         }
     </script>
