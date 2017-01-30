@@ -202,7 +202,7 @@
             }
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    window.location.replace(window.location.href);
+                    //window.location.replace(window.location.href);
                 }
             };
 
