@@ -258,7 +258,7 @@
             getMacrosData(userID, function(dataSet) {
                 createMacrosGraph(dataSet);
                 macrosDataSet = dataSet;
-                fillTable(caloriesDataSet, macrosDataSet);
+                fillTable(calorieDataSet, macrosDataSet);
             }, function(errorMessage) {
                 renderStatus('Error: ' + errorMessage);
             });
