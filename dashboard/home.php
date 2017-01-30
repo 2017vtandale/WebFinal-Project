@@ -246,22 +246,31 @@
             //User ID, pulling Test Data
             var userID = <?php echo(json_encode($_GET['user'])); ?>;
 
-            var calorieDataSet;
-            var macrosDataSet;
+            //create calories graph
             getCalorieData(userID, function(dataSet) {
                 createCalorieGraph(dataSet);
-                calorieDataSet= dataSet;
             }, function(errorMessage) {
                 renderStatus('Error: ' + errorMessage);
             });
 
+            //create Macros Graph
             getMacrosData(userID, function(dataSet) {
                 createMacrosGraph(dataSet);
-                macrosDataSet = dataSet;
-                fillTable(calorieDataSet, macrosDataSet);
             }, function(errorMessage) {
                 renderStatus('Error: ' + errorMessage);
             });
+
+            //fill in table, ENTER THE CALLBACK HELL!!!
+            getCalorieData(userID, function(calorieDataSet) {
+                getMacrosData(userID, function(macrosDataSet){
+                    fillTable(calorieDataSet, macrosDataSet);
+                }, function(errorMessage) {
+                    renderStatus('Error: ' + errorMessage);
+                });
+            }, function(errorMessage) {
+                renderStatus('Error: ' + errorMessage);
+            });
+
 
         });
 
